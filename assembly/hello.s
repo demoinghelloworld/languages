@@ -1,30 +1,26 @@
-	.section	__TEXT,__text,regular,pure_instructions
-	.build_version macos, 10, 16	sdk_version 11, 0
-	.globl	_main                   ## -- Begin function main
-	.p2align	4, 0x90
-_main:                                  ## @main
+	.file	"hello.c"
+	.section	.rodata
+.LC0:
+	.string	"Hello, World!"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
 	.cfi_startproc
-## %bb.0:
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
-	.cfi_offset %rbp, -16
+	.cfi_offset 6, -16
 	movq	%rsp, %rbp
-	.cfi_def_cfa_register %rbp
-	subq	$16, %rsp
-	movl	$0, -4(%rbp)
-	leaq	L_.str(%rip), %rdi
-	movb	$0, %al
-	callq	_printf
-	xorl	%ecx, %ecx
-	movl	%eax, -8(%rbp)          ## 4-byte Spill
-	movl	%ecx, %eax
-	addq	$16, %rsp
+	.cfi_def_cfa_register 6
+	movl	$.LC0, %edi
+	call	puts
+	movl	$0, %eax
 	popq	%rbp
-	retq
+	.cfi_def_cfa 7, 8
+	ret
 	.cfi_endproc
-                                        ## -- End function
-	.section	__TEXT,__cstring,cstring_literals
-L_.str:                                 ## @.str
-	.asciz	"Hello, World!\n"
-
-.subsections_via_symbols
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (GNU) 4.8.5 20150623 (Red Hat 4.8.5-44)"
+	.section	.note.GNU-stack,"",@progbits
