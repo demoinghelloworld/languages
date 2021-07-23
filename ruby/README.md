@@ -6,5 +6,5 @@ How To
 ------
 
 ```sh
-ruby hello.ry
+ruby hello.rb
 ```
