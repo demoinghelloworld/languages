@@ -6,7 +6,7 @@ How To
 ------
 
 ```sh
-tclsh -f hello.tcl
+tclsh hello.tcl
 ```
 
 
