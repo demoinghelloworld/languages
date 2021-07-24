@@ -8,5 +8,5 @@ Building
 Create compiled executable
 
 ```sh
-g++ -o hello -Bstatic hello.cpp
+g++ -o hello hello.cpp
 ```
